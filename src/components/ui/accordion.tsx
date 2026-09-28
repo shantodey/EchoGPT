@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { ChevronDown } from "lucide-react"
+import { Plus } from "lucide-react"
 import { cn } from "cn"
 
 interface AccordionContextType {
@@ -91,11 +91,7 @@ function AccordionTrigger({
   const isOpen = selectedValue === itemValue
 
   return (
-    <button
-      type="button"
-      data-slot="accordion-trigger"
-      aria-expanded={isOpen}
-      onClick={() => onValueChange?.(itemValue)}
+    <button  type="button"  data-slot="accordion-trigger"  aria-expanded={isOpen}  onClick={() => onValueChange?.(itemValue)}
       className={cn(
         "flex flex-1 items-center justify-between w-full px-5 py-4 text-left font-medium transition-all hover:opacity-85 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
         className
@@ -103,12 +99,7 @@ function AccordionTrigger({
       {...props}
     >
       {children}
-      <ChevronDown
-        className={cn(
-          "h-4 w-4 shrink-0 transition-transform duration-200 text-muted-foreground",
-          isOpen && "rotate-180"
-        )}
-      />
+      <Plus className={cn("h-4 w-4 shrink-0 transition-transform duration-200 text-muted-foreground",isOpen && "rotate-45")}/>
     </button>
   )
 }

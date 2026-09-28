@@ -9,7 +9,7 @@ import { siteContent, type ModelInfo } from "@/content/siteContent"
 
 const { hero, urls } = siteContent
 
-// Hero mesh nodes derived from models in siteContent
+
 const AI_NODES = siteContent.models.items.map((m, i) => {
   const positions = [
     { x: 55, y: 45 },
@@ -31,10 +31,7 @@ export default function Hero(): React.JSX.Element {
       <div className="wrap grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
         {/* Left Column */}
         <div className="flex flex-col items-start">
-          <Badge
-            variant="outline"
-            className="mb-5 py-1 px-3 gap-2 border-[var(--border-strong)] bg-[var(--bg)] text-[var(--ink-soft)] text-xs font-normal"
-          >
+          <Badge  variant="outline"  className="mb-5 py-1 px-3 gap-2 border-[var(--border-strong)] bg-[var(--bg)] text-[var(--ink-soft)] text-xs font-normal">
             <span className="w-2 h-2 rounded-full bg-[var(--accent-teal)] animate-pulse" />
             <span>{hero.badge}</span>
           </Badge>
@@ -48,22 +45,15 @@ export default function Hero(): React.JSX.Element {
           </p>
 
           <div className="flex items-center gap-4 flex-wrap">
-            <Button
-              asChild
-              size="lg"
-              className="bg-[var(--ink)] text-[var(--bg)] hover:opacity-90 font-medium px-5"
-            >
+            <Button  asChild  size="lg"  className="bg-[var(--ink)] text-[var(--bg)] hover:opacity-90 font-medium px-5">
               <Link href={urls.chromeExtension} target="_blank" rel="noopener noreferrer">
                 {siteContent.navigation.addToChrome}
               </Link>
             </Button>
 
-            <Button
-              asChild
-              variant="ghost"
-              size="lg"
-              className="text-[var(--ink)] hover:bg-[var(--bg-alt)] group gap-1.5"
-            >
+            <Button  asChild  variant="ghost"  size="lg"  className="text-[var(--ink)] hover:bg-[var(--bg-alt)] group gap-1.5"  style={{
+                borderImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='none' rx='8' ry='8' stroke='%23ccc' stroke-width='2' stroke-dasharray='2, 10' stroke-linecap='round'/%3E%3C/svg%3E") 1`,
+              }}>
               <Link href="#preview">
                 <span>{hero.explore}</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -96,12 +86,7 @@ export default function Hero(): React.JSX.Element {
               <span>{hero.latency}</span>
             </div>
 
-            <svg
-              viewBox="0 0 260 200"
-              role="img"
-              aria-label={hero.networkAlt}
-              className="w-full h-auto select-none"
-            >
+            <svg  viewBox="0 0 260 200"  role="img"  aria-label={hero.networkAlt}  className="w-full h-auto select-none">
               <circle cx="130" cy="100" r="75" stroke="var(--border)" strokeWidth="1" strokeDasharray="3 3" fill="none" opacity="0.6" />
               <circle cx="130" cy="100" r="45" stroke="var(--border)" strokeWidth="1" strokeDasharray="2 2" fill="none" opacity="0.5" />
 
