@@ -28,10 +28,7 @@ export default function FeatureGrid(): React.JSX.Element {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mt-10">
           {features.items.map((feat) => (
-            <Card
-              key={feat.id}
-              className="bg-[var(--bg)] border-[var(--border)] shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
-            >
+            <Card  key={feat.id}  className=" bg-[var(--bg)]  shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between mb-2">
                   <span className="w-10 h-10 rounded-[var(--radius-sm)] bg-[var(--bg-alt)] border border-[var(--border)] flex items-center justify-center text-[var(--ink)]">

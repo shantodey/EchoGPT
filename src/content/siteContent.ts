@@ -1,6 +1,9 @@
+import logo from "@/app/Asset/logo.png"
+
 export const siteContent = {
   brand: {
     name: "EchoGPT",
+    logoSrc: logo,
     logoAlt: "EchoGPT logo",
     homeLabel: "EchoGPT Homepage",
     footerDescription:
@@ -288,7 +291,6 @@ export const siteContent = {
     ],
   },
   cta: {
-    badge: "INSTANT INSTALL • NO CREDIT CARD",
     title: "Bring every AI into one sidebar.",
     description:
       "Free to install. Two-minute setup. Start reading, summarizing, and writing faster across all your browser tabs today.",

@@ -31,11 +31,7 @@ export default function Hero(): React.JSX.Element {
       <div className="wrap grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
         {/* Left Column */}
         <div className="flex flex-col items-start">
-          <Badge  variant="outline"  className="mb-5 py-1 px-3 gap-2 border-[var(--border-strong)] bg-[var(--bg)] text-[var(--ink-soft)] text-xs font-normal">
-            <span className="w-2 h-2 rounded-full bg-[var(--accent-teal)] animate-pulse" />
-            <span>{hero.badge}</span>
-          </Badge>
-
+          
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-semibold tracking-tight leading-[1.12] mb-4 text-[var(--ink)]">
             {hero.title}
           </h1>
@@ -45,15 +41,13 @@ export default function Hero(): React.JSX.Element {
           </p>
 
           <div className="flex items-center gap-4 flex-wrap">
-            <Button  asChild  size="lg"  className="bg-[var(--ink)] text-[var(--bg)] hover:opacity-90 font-medium px-5">
+            <Button asChild size="lg" className="btn-primary hover:opacity-90 font-medium px-5">
               <Link href={urls.chromeExtension} target="_blank" rel="noopener noreferrer">
                 {siteContent.navigation.addToChrome}
               </Link>
             </Button>
 
-            <Button  asChild  variant="ghost"  size="lg"  className="text-[var(--ink)] hover:bg-[var(--bg-alt)] group gap-1.5"  style={{
-                borderImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='none' rx='8' ry='8' stroke='%23ccc' stroke-width='2' stroke-dasharray='2, 10' stroke-linecap='round'/%3E%3C/svg%3E") 1`,
-              }}>
+            <Button  asChild  variant="ghost"  size="lg"  className="text-[var(--ink)] hover:bg-[var(--bg-alt)] group gap-1.5 dotted_background"  >
               <Link href="#preview">
                 <span>{hero.explore}</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

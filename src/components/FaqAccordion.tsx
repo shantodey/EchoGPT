@@ -22,11 +22,7 @@ export default function FaqAccordion(): React.JSX.Element {
 
         <Accordion type="single" defaultValue="item-1" collapsible className="w-full space-y-3">
           {faq.items.map((item) => (
-            <AccordionItem key={item.id}  value={item.id}  className="bg-[var(--bg-alt)] mb-0 rounded-t-[var(--radius-md)] rounded-b-none border-1 border-transparent"
-              style={{
-                borderImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='none' rx='8' ry='8' stroke='%23ccc' stroke-width='2' stroke-dasharray='2, 10' stroke-linecap='round'/%3E%3C/svg%3E") 1`,
-              }}
-            >
+            <AccordionItem key={item.id} value={item.id} className="dotted_background accordion-dashed-border bg-[var(--bg-alt)] mb-0 rounded-t-[var(--radius-md)] rounded-b-none border-1 border-transparent" >
               <AccordionTrigger className="text-[14px] sm:text-[15px] text-[var(--ink)]">
                 {item.question}
               </AccordionTrigger>

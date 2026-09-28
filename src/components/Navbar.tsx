@@ -2,15 +2,18 @@
 
 import React, { useState } from "react"
 import Link from "next/link"
-import { Sun, Moon, Menu, X, Sparkles } from "lucide-react"
+import Image from "next/image"
+import { Sun, Moon, Menu, X } from "lucide-react"
+import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
-import { useTheme } from "./ThemeProvider"
 import { siteContent } from "@/content/siteContent"
 
 const { navigation, urls, brand } = siteContent
 
 export default function Navbar(): React.JSX.Element {
-  const { theme, toggleTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
+  const theme = resolvedTheme === "dark" ? "dark" : "light"
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark")
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false)
 
   return (
@@ -18,17 +21,15 @@ export default function Navbar(): React.JSX.Element {
       <div className="wrap">
         <div className="flex items-center justify-between py-3.5">
           {/* Brand Logo */}
-          <Link
-            href={urls.home}
-            className="flex items-center gap-2.5 font-semibold text-[15px] tracking-tight hover:opacity-90 transition-opacity"
-            aria-label={brand.homeLabel}
-          >
-            <span
-              className="w-6 h-6 rounded-md bg-[var(--ink)] flex items-center justify-center text-[var(--bg)] shadow-xs"
-              aria-hidden="true"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-            </span>
+          <Link href={urls.home} className="flex items-center gap-2.5 font-semibold text-[15px] tracking-tight hover:opacity-90 transition-opacity"
+            aria-label={brand.homeLabel}>
+            <Image
+              src={brand.logoSrc}
+              alt={brand.logoAlt}
+              width={24}
+              height={24}
+              className="h-6 w-6 object-contain"
+            />
             <span className="text-[var(--ink)] font-bold">{brand.name}</span>
           </Link>
 
@@ -67,11 +68,7 @@ export default function Navbar(): React.JSX.Element {
             </Button>
 
             {/* Sign In */}
-            <Button
-              asChild
-              variant="outline"
-              size="sm"
-              className="hidden sm:inline-flex border-[var(--border-strong)] bg-transparent text-[var(--ink)] hover:bg-[var(--bg-alt)]"
+            <Button  asChild  variant="outline"  size="sm"  className="hidden sm:inline-flex border-[var(--border-strong)] bg-transparent text-[var(--ink)] hover:bg-[var(--bg-alt)]"
             >
               <Link href={urls.login} target="_blank" rel="noopener noreferrer">
                 {navigation.signIn}
@@ -79,11 +76,7 @@ export default function Navbar(): React.JSX.Element {
             </Button>
 
             {/* Add to Chrome */}
-            <Button
-              asChild
-              size="sm"
-              className="bg-[var(--ink)] text-[var(--bg)] hover:opacity-90 font-medium"
-            >
+            <Button asChild size="sm" className="btn-primary hover:opacity-90 font-medium">
               <Link href={urls.chromeExtension} target="_blank" rel="noopener noreferrer">
                 {navigation.addToChrome}
               </Link>
@@ -131,7 +124,7 @@ export default function Navbar(): React.JSX.Element {
               </Button>
               <Button
                 asChild
-                className="w-full justify-center bg-[var(--ink)] text-[var(--bg)]"
+                className="btn-primary w-full justify-center"
               >
                 <Link href={urls.chromeExtension} target="_blank" rel="noopener noreferrer">
                   {navigation.addToChrome}

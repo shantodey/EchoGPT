@@ -2,7 +2,8 @@ import React from "react"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { siteContent } from "@/content/siteContent"
-
+import logo from "@/app/Asset/logo.png"
+import Image from "next/image"
 const { footer, brand, urls } = siteContent
 
 function resolveHref(href: string): string {
@@ -18,7 +19,7 @@ export default function Footer(): React.JSX.Element {
           {/* Brand Info */}
           <div>
             <Link href={urls.home} className="flex items-center gap-2 text-[var(--cream)] font-semibold text-[15px] mb-3 hover:opacity-90 transition-opacity">
-              <span className="w-5 h-5 rounded-[5px] bg-[var(--cream)] text-[var(--dark)] flex items-center justify-center font-bold text-xs shadow-xs">E</span>
+              <Image src={logo} alt="logo" width={24} height={24} className="h-6 w-6 object-contain" />
               <span>{brand.name}</span>
             </Link>
             <p className="text-[13px] text-[var(--dark-text-soft)] max-w-[240px] leading-relaxed mb-4">
@@ -39,18 +40,10 @@ export default function Footer(): React.JSX.Element {
                   const isExternal = resolvedHref.startsWith("http")
                   return (
                     <li key={link.label}>
-                      <Link
-                        href={resolvedHref}
-                        target={isExternal ? "_blank" : undefined}
-                        rel={isExternal ? "noopener noreferrer" : undefined}
-                        className="hover:text-[var(--cream)] transition-colors inline-flex items-center gap-1.5"
-                      >
+                      <Link href={resolvedHref} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined} className="hover:text-[var(--cream)] transition-colors inline-flex items-center gap-1.5">
                         <span>{link.label}</span>
                         {"badge" in link && link.badge && (
-                          <Badge
-                            variant="secondary"
-                            className="text-[10px] bg-white/10 text-[var(--cream)] border-0 py-0 px-1.5"
-                          >
+                          <Badge variant="secondary" className="text-[10px] bg-white/10 text-[var(--cream)] border-0 py-0 px-1.5">
                             {link.badge}
                           </Badge>
                         )}
@@ -68,8 +61,8 @@ export default function Footer(): React.JSX.Element {
           <span>{brand.copyright}</span>
           <div className="flex items-center gap-2">
             <span>{brand.builtByLabel}</span>
-            <Link href={urls.Shanto_Dey} target="_blank" rel="noopener noreferrer"className="text-[var(--cream)] hover:underline font-medium">
-             {brand.builtBy}
+            <Link href={urls.Shanto_Dey} target="_blank" rel="noopener noreferrer" className="text-[var(--cream)] hover:underline font-medium">
+              {brand.builtBy}
             </Link>
           </div>
         </div>

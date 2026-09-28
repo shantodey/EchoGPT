@@ -38,7 +38,7 @@ export default function ModelPicker(): React.JSX.Element {
         </div>
 
         {/* Right Column: Model Panel */}
-        <Card className="bg-[var(--dark-card)] text-[var(--cream)] rounded-[var(--radius-lg)] p-6 sm:p-7 shadow-xl border-white/5 ring-0">
+        <Card className="bg-[var(--dark-card)] text-[var(--cream)] rounded-[var(--radius-lg)] p-6 sm:p-7 shadow-xl ring-0">
           <div className="flex items-center justify-between text-xs text-[var(--dark-text-faint)] mb-4">
             <span className="font-mono uppercase tracking-wider flex items-center gap-1.5">
               <Cpu className="w-3.5 h-3.5" />
